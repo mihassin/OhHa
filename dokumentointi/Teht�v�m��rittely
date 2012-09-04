@@ -1,9 +1,14 @@
 Miinaharava
 
-Miinaharava on peli, jossa on n*m -kokoinen pelilauta. Laudalle on piilotettu miinoja, jotka pelaajan tulee etsiä. Kenttä on lokeroitu ja pelaaja ei tiedä onko yhden lokeron alla miina tai turvallinen alue. Painamalla miinoitettua 
-aluetta pelaaja häviää. Jos pelaaja löytää tyhjän alueen, voi alueella olla numero, mikä ilmaisee kuinka monta miinaa on ruudun vieressä, mikä mahdollistaa miinojen paikantamisen. Miinaharava on suunnattu kaikenlaisille pelistä kiinnostuneille.
+Miinaharava on peli, jossa on n*m -kokoinen pelilauta. 
+Laudalle on piilotettu miinoja, jotka pelaajan tulee etsiï¿½. Kenttï¿½ on lokeroitu ja pelaaja ei 
+tiedï¿½ onko yhden lokeron alla miina tai turvallinen alue. Painamalla miinoitettua 
+aluetta pelaaja hï¿½viï¿½ï¿½. 
+Jos pelaaja lï¿½ytï¿½ï¿½ tyhjï¿½n alueen, voi alueella olla numero, mikï¿½ ilmaisee kuinka monta 
+miinaa on ruudun vieressï¿½, mikï¿½ mahdollistaa miinojen paikantamisen. 
+Miinaharava on suunnattu kaikenlaisille pelistï¿½ kiinnostuneille.
 
-Käyttäjä
+Kï¿½yttï¿½jï¿½
 
 Pelaaja:
 * uuden pelin aloittaminen
