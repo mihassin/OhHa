@@ -35,4 +35,8 @@ public class Ruutu {
     public void asetaLippu() {
         liputettuRuutu = true;
     }
+    
+    public String toString() {
+        return "i exist";
+    }
 }
