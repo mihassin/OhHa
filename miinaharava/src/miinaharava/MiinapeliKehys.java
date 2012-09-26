@@ -35,7 +35,7 @@ public class MiinapeliKehys extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         // LUO OMA PANEELI HALUTULLA MÄÄRÄLLÄ RUUTUJA
-        panel = new OmaPaneeli(9,9,10); 
+        panel = new OmaPaneeli(16,16,10); 
         alaPaneeli = new JLabel("Mahdollisia tilastoja/pisteitä");
         statusbar = new JMenuBar();
         peliValikko = new JMenu();
@@ -50,7 +50,8 @@ public class MiinapeliKehys extends JFrame{
         //panel.setPreferredSize(new Dimension(400,300));
         alaPaneeli.setBackground(Color.white);
         alaPaneeli.setOpaque(true);
-        alaPaneeli.setBorder(BorderFactory.createLineBorder(Color.white));
+//        alaPaneeli.setBorder(BorderFactory.createLineBorder(Color.white));
+        alaPaneeli.setBorder(BorderFactory.createLoweredBevelBorder());
     }
     /**
      * Metodi määrittelee valikon oliot ja itse valikko olion.
