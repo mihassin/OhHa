@@ -37,7 +37,7 @@ public class Nappi extends JButton {
     /**
      * Määrittelee miltä avattu ruutu näyttää.
      */
-    public void naytaAvattu() {
+    private void naytaAvattu() {
         setBackground(Color.white);
         setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED, Color.lightGray, Color.gray));
     }
@@ -46,14 +46,50 @@ public class Nappi extends JButton {
      * Määrittelee miltä miinoitettu ruutu näyttää.
      */
     public void naytaMiina() {
-        
+        naytaAvattu();
+        setText("X");
+    }
+    
+    private Color asetaOikeaFontti(int vihjenumero) {
+        if(vihjenumero == 1) {
+            return Color.blue;
+        }
+        if(vihjenumero == 2) {
+            return Color.green;
+        }
+        if(vihjenumero == 3) {
+            return Color.red;
+        }
+        if(vihjenumero == 4) {
+            return Color.pink;
+        }
+        if(vihjenumero == 5) {
+            return Color.magenta;
+        }
+        if(vihjenumero == 6) {
+            return Color.cyan;
+        }
+        if(vihjenumero == 7) {
+            return Color.yellow;
+        }
+        if(vihjenumero == 8) {
+            return Color.black;
+        }
+        else
+            return null;
     }
     /**
      * Määrittelee miltä ruutu näyttää kun sillä on vihjenumero.
      * @param vihjenumero 
      */
     public void naytaVihje(int vihjenumero) {
-        
+        naytaAvattu();
+        Color oikea = asetaOikeaFontti(vihjenumero);
+        if(vihjenumero > 0) {
+            String vihje = "" + vihjenumero;
+            setText(vihje);
+            setForeground(oikea);
+        }
     }
     /**
      * Määrittelee miltä ruutu näyttää, kun sille asetetaan tai poistetaan lippu.

@@ -57,6 +57,11 @@ public class OmaPaneeli extends JPanel implements MouseListener {
             }
         }
     }
+    
+//    public void uusiPeli() {
+//        ruudukonLuonti();
+//        logiikka.uusiPeli();
+//    }
     /**
      * Metodi määrittelee oikean ja vasemman hiiren painikkeen toiminnallisuutta.
      * @param e 
@@ -104,11 +109,39 @@ public class OmaPaneeli extends JPanel implements MouseListener {
      * Vasemman hiiren painikkeen toiminta.
      */
     private void vasenHiiri() {
+        int vihje;
         if (!logiikka.onkoAuki(nappi.getKordinaattiX(), nappi.getKordinaattiY())) {
+            
+            
             if (!logiikka.onkoLippu(nappi.getKordinaattiX(), nappi.getKordinaattiY())) {
-                nappi.naytaAvattu();
+                if(logiikka.onkoMiina(nappi.getKordinaattiX(), nappi.getKordinaattiY()))
+                    nappi.naytaMiina();
+                
+                else {
+                    vihje = logiikka.getVihjeNumero(nappi.getKordinaattiX(), nappi.getKordinaattiY());
+//                    
+//                    if(vihje == 0)
+//                        avaaTyhjatRuudut(nappi.getKordinaattiX(), nappi.getKordinaattiY());
+                    
+                    nappi.naytaVihje(vihje);
+                }
+//                logiikka.avaaTyhjatRuudutRuudukossa(nappi.getKordinaattiX(), nappi.getKordinaattiY());
                 logiikka.avaa(nappi.getKordinaattiX(), nappi.getKordinaattiY());
             }
         }
     }
+    
+//    private void avaaTyhjatRuudut(int kordinaattiX, int kordinaattiY) {
+//        for(int i = kordinaattiX-1; i < kordinaattiX+2; i++) {
+//                for(int j = kordinaattiY-1; j < kordinaattiY+2; j++) {
+//                    if((i>=0 && i<x) && (j>=0 && j<y)) {
+//                    
+//                        int apuvihje = logiikka.getVihjeNumero(i , j);
+//                        if((!(i==kordinaattiX && j==kordinaattiY)) && apuvihje == 0) {
+//                            nappi.naytaVihje(apuvihje);
+//                    }
+//                }   
+//            }       
+//        }
+//    }
 }

@@ -10,7 +10,7 @@ import javax.swing.*;
  */
 public class MiinapeliKehys extends JFrame{
    
-    private JPanel panel;
+    private OmaPaneeli panel;
     private JLabel alaPaneeli;
     private JMenuBar statusbar;
     private JMenu peliValikko;
@@ -35,7 +35,7 @@ public class MiinapeliKehys extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         // LUO OMA PANEELI HALUTULLA MÄÄRÄLLÄ RUUTUJA
-        panel = new OmaPaneeli(16,16,30); 
+        panel = new OmaPaneeli(9,9,10); 
         alaPaneeli = new JLabel("Mahdollisia tilastoja/pisteitä");
         statusbar = new JMenuBar();
         peliValikko = new JMenu();
@@ -89,6 +89,7 @@ public class MiinapeliKehys extends JFrame{
      */
     private void uusiPeliActionPerformed(ActionEvent evt) {
         alaPaneeli.setText("Vain maksullisessa versiossa!");
+//        panel.uusiPeli();
     }
     /**
      * Määrittelee valikon sulje kohdan toimintaa.

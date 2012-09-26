@@ -182,5 +182,31 @@ public class Ruudukko {
             }
         }
          return vihjeNumero;
-    } 
+    }
+    
+//    public void uusiPeli() {
+//        lisaaRuudutTauluun();
+//        miinoitaRuudukko();
+//    }
+    /**
+     * Avaa vierekkäiset tyhjät ruudut, 
+     * eli asettaa vierekkäisille ruuduille, joilla ei ole vihjenumeroa, miina tai lippua.
+     */
+    public void avaaTyhjatRuudutRuudukossa(int sijaintiX, int sijaintiY) {
+        int vihje = getVihjeNumero(sijaintiX, sijaintiY);
+        
+        if(vihje == 0){
+            for(int i = sijaintiX-1; i < sijaintiX+2; i++) {
+                for(int j = sijaintiY-1; j < sijaintiY+2; j++) {
+                    if((i>=0 && i<x) && (j>=0 && j<y)) {
+                    
+                        int apuvihje = getVihjeNumero(i , j);
+                        if((!(i==sijaintiX && j==sijaintiY)) && apuvihje == 0) {
+                            avaa(i, j);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
