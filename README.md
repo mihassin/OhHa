@@ -6,3 +6,4 @@ viikko 4
 - logiikka siirretty omaan kansioon
 - kaksi uutta luokkaa: nappi ja GUI
 - OmaPaneeli noudattaa logiikkaa
+- javadoc: OhHa/miinaharava/dist
