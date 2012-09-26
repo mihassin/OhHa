@@ -84,7 +84,9 @@ public class OmaPaneeli extends JPanel implements MouseListener {
 
     public void mouseExited(MouseEvent e) {
     }
-
+    /**
+     * Oikean hiiren painikkeen toiminta.
+     */
     private void oikeaHiiri() {
         if (!logiikka.onkoAuki(nappi.getKordinaattiX(), nappi.getKordinaattiY())) {
             if (!logiikka.onkoLippu(nappi.getKordinaattiX(), nappi.getKordinaattiY())) {
@@ -98,7 +100,9 @@ public class OmaPaneeli extends JPanel implements MouseListener {
             }
         }
     }
-
+    /**
+     * Vasemman hiiren painikkeen toiminta.
+     */
     private void vasenHiiri() {
         if (!logiikka.onkoAuki(nappi.getKordinaattiX(), nappi.getKordinaattiY())) {
             if (!logiikka.onkoLippu(nappi.getKordinaattiX(), nappi.getKordinaattiY())) {
