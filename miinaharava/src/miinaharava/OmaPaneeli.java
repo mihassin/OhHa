@@ -65,26 +65,11 @@ public class OmaPaneeli extends JPanel implements MouseListener {
         nappi = (Nappi) e.getSource();
 
         if (e.getButton() == MouseEvent.BUTTON1) {
-            if (!logiikka.onkoAuki(nappi.getKordinaattiX(), nappi.getKordinaattiY())) {
-                if (!logiikka.onkoLippu(nappi.getKordinaattiX(), nappi.getKordinaattiY())) {
-                    nappi.naytaAvattu();
-                    logiikka.avaa(nappi.getKordinaattiX(), nappi.getKordinaattiY());
-                }
-            }
+            vasenHiiri();
         }
 
         if (e.getButton() == MouseEvent.BUTTON3) {
-            if (!logiikka.onkoAuki(nappi.getKordinaattiX(), nappi.getKordinaattiY())) {
-                if (!logiikka.onkoLippu(nappi.getKordinaattiX(), nappi.getKordinaattiY())) {
-                    nappi.naytaLippu(true);
-                    logiikka.asetaLippu(nappi.getKordinaattiX(), nappi.getKordinaattiY(), true);
-                }
-
-                else {
-                    nappi.naytaLippu(false);
-                    logiikka.asetaLippu(nappi.getKordinaattiX(), nappi.getKordinaattiY(), false);
-                }
-            }
+            oikeaHiiri();
         }
     }
 
@@ -98,5 +83,28 @@ public class OmaPaneeli extends JPanel implements MouseListener {
     }
 
     public void mouseExited(MouseEvent e) {
+    }
+
+    private void oikeaHiiri() {
+        if (!logiikka.onkoAuki(nappi.getKordinaattiX(), nappi.getKordinaattiY())) {
+            if (!logiikka.onkoLippu(nappi.getKordinaattiX(), nappi.getKordinaattiY())) {
+                nappi.naytaLippu(true);
+                logiikka.asetaLippu(nappi.getKordinaattiX(), nappi.getKordinaattiY(), true);
+            }
+
+            else {
+                nappi.naytaLippu(false);
+                logiikka.asetaLippu(nappi.getKordinaattiX(), nappi.getKordinaattiY(), false);
+            }
+        }
+    }
+
+    private void vasenHiiri() {
+        if (!logiikka.onkoAuki(nappi.getKordinaattiX(), nappi.getKordinaattiY())) {
+            if (!logiikka.onkoLippu(nappi.getKordinaattiX(), nappi.getKordinaattiY())) {
+                nappi.naytaAvattu();
+                logiikka.avaa(nappi.getKordinaattiX(), nappi.getKordinaattiY());
+            }
+        }
     }
 }
