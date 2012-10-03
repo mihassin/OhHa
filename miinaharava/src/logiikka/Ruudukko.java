@@ -17,6 +17,7 @@ public class Ruudukko {
     private int vihjeNumero;
     private int miinaLkm;
     private Ruutu[][] ruudukko;
+    
     /**
      * Ruudukon konstruktori.
      * Luo x * y kokoisen ruutu taulukon.
@@ -28,13 +29,11 @@ public class Ruudukko {
         x = leveys;
         y = korkeus;
         miinaLkm = miinat;
-        
         ruudukko = new Ruutu[x][y];
-        
+
         lisaaRuudutTauluun();
         miinoitaRuudukko();
     }
-    
     /**
      * Luo jokaisen taulukon ruutu olion. Ruutuja on ruudukossa x * y määrä.
      */
@@ -45,7 +44,6 @@ public class Ruudukko {
             }    
         }
     }
-    
     /**
      * Lisää Ruudukkoon satunnaisille paikoille miinat.
      * Miinoja on Ruudukossa miinaLkm määrä.
@@ -65,7 +63,7 @@ public class Ruudukko {
         for(int i = 0; i < x; i++) {
             for(int j = 0; j < y; j++) {
                 if(apu.get(apuTaulunKoko) == 1)
-                    ruudukko[i][j].asetaMiina();
+                    ruudukko[i][j].asetaMiina(true);
                 apuTaulunKoko++;
             }
         }
@@ -77,7 +75,6 @@ public class Ruudukko {
     public int getLeveys() {
         return x;
     }
-    
     /**
      * Palauttaa ruudukon rivijen määrän.
      * @return 
@@ -85,7 +82,6 @@ public class Ruudukko {
     public int getKorkeus() {
         return y;
     }
-    
     /**
      * Palauttaa ruudun kohdassa (sijaintiX, sijaintiY)
      * @param sijaintiX
@@ -95,7 +91,6 @@ public class Ruudukko {
     public Ruutu getRuutu(int sijaintiX, int sijaintiY) {
         return ruudukko[sijaintiX][sijaintiY];
     }
-    
     /**
      * Kertoo onko ruutu avattu kohdassa (sijaintiX, sijaintiY)
      * @param sijaintiX
@@ -105,7 +100,6 @@ public class Ruudukko {
     public boolean onkoAuki(int sijaintiX, int sijaintiY) {
         return ruudukko[sijaintiX][sijaintiY].onkoAvattu();
     }
-    
     /**
      * Kertoo onko kohdassa (sijaintiX, sijaintiY) ruudulle asetettu lippu.
      * @param sijaintiX
@@ -115,7 +109,6 @@ public class Ruudukko {
     public boolean onkoLippu(int sijaintiX, int sijaintiY) {
         return ruudukko[sijaintiX][sijaintiY].onkoLippu();
     }
-    
     /**
      * Kertoo onko kohdassa (sijaintiX, sijaintiY) ruutu miinoitettu.
      * @param sijaintiX
@@ -125,7 +118,6 @@ public class Ruudukko {
     public boolean onkoMiina(int sijaintiX, int sijaintiY) {
         return ruudukko[sijaintiX][sijaintiY].onkoMiina();
     }
-    
     /**
      * Asettaa ruudulle kohdassa (sijaintiX, sijaintiY) lipun, jos ruudulla ei ole lippua.
      * Jos ruudulla on lippu, lippu poistetaan. Palauttaa arvon true, jos algoritmi onnistui.
@@ -156,7 +148,7 @@ public class Ruudukko {
      */
     public void avaa(int sijaintiX, int sijaintiY) {
         if (!ruudukko[sijaintiX][sijaintiY].onkoAvattu()) {
-            ruudukko[sijaintiX][sijaintiY].asetaAvattu();
+            ruudukko[sijaintiX][sijaintiY].asetaAvattu(true);
         }
     }
     /**
@@ -183,30 +175,17 @@ public class Ruudukko {
         }
          return vihjeNumero;
     }
-    
-//    public void uusiPeli() {
-//        lisaaRuudutTauluun();
-//        miinoitaRuudukko();
-//    }
     /**
-     * Avaa vierekkäiset tyhjät ruudut, 
-     * eli asettaa vierekkäisille ruuduille, joilla ei ole vihjenumeroa, miina tai lippua.
+     * Uuden pelin luodessa, metodi asettaa joka ruudulle false arvon miinoille, lipuille ja avatuille.
      */
-    public void avaaTyhjatRuudutRuudukossa(int sijaintiX, int sijaintiY) {
-        int vihje = getVihjeNumero(sijaintiX, sijaintiY);
-        
-        if(vihje == 0){
-            for(int i = sijaintiX-1; i < sijaintiX+2; i++) {
-                for(int j = sijaintiY-1; j < sijaintiY+2; j++) {
-                    if((i>=0 && i<x) && (j>=0 && j<y)) {
-                    
-                        int apuvihje = getVihjeNumero(i , j);
-                        if((!(i==sijaintiX && j==sijaintiY)) && apuvihje == 0) {
-                            avaa(i, j);
-                        }
-                    }
-                }
+    public void uusiPeli() {
+        for(int i = 0; i<x; i++) {
+            for(int j= 0; j<y; j++){
+                ruudukko[i][j].asetaAvattu(false);
+                ruudukko[i][j].asetaMiina(false);
+                ruudukko[i][j].asetaLippu(false);
             }
-        }
+        }     
+        miinoitaRuudukko();
     }
 }

@@ -45,8 +45,21 @@ public class RuutuTest {
     
     @Test
     public void miinoita() { 
-        r.asetaMiina();
+        r.asetaMiina(true);
         assertTrue(r.onkoMiina());
+    }
+    
+    @Test
+    public void poistaMiina() {
+        r.asetaMiina(false);
+        assertFalse(r.onkoMiina());
+    }
+    
+    @Test
+    public void miinoituksenJalkeenPoistaMiina() {
+        r.asetaMiina(true);
+        r.asetaMiina(false);
+        assertFalse(r.onkoMiina());
     }
     
     @Test
@@ -70,7 +83,20 @@ public class RuutuTest {
     
     @Test
     public void avaaRuutu() { 
-        r.asetaAvattu();
+        r.asetaAvattu(true);
         assertTrue(r.onkoAvattu());
+    }
+    
+    @Test
+    public void suljeRuutu() {
+        r.asetaAvattu(false);
+        assertFalse(r.onkoAvattu());
+    }
+    
+    @Test
+    public void avaaRuutuSittenSulje() {
+        r.asetaAvattu(true);
+        r.asetaAvattu(false);
+        assertFalse(r.onkoAvattu());
     }
 }

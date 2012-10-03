@@ -46,12 +46,7 @@ public class RuudukkoTest {
     public void alussaEiOleLippua() {
         assertFalse(r.onkoLippu(1, 2));
     }
-    
-    @Test
-    public void alussaEiOleMiinaa() {
-        assertFalse(r.onkoMiina(1, 2));
-    }
-    
+
     @Test
     public void lipunAsettaminen() {
         r.asetaLippu(1, 2, true);
@@ -73,7 +68,6 @@ public class RuudukkoTest {
         assertFalse(r.onkoLippu(1, 2));
     }
     
-    
     @Test
     public void miinoittaminen() {
         Ruudukko e = new Ruudukko(3,3,9); //UUSI RUUDUKKO,
@@ -87,6 +81,14 @@ public class RuudukkoTest {
     }
     
     @Test
-    public void vihjeNumero() {
+    public void uusiPeliEiLippuja() {
+        r.uusiPeli();
+        assertFalse(r.onkoLippu(1, 1));
+    }
+    
+    @Test
+    public void uusiPeliEiAvattu() {
+        r.uusiPeli();
+        assertFalse(r.onkoAuki(1, 1));
     }
 }

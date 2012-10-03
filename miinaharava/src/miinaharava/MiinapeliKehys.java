@@ -21,10 +21,10 @@ public class MiinapeliKehys extends JFrame{
      * Konstruktori suorittaa alkumetodeja.
      */
     public MiinapeliKehys() {
-        luoKehysMuuttujineen();
-        paneelinJaAlapaneelinToiminta();
-        valkonToiminta();
-        lisaaKehykseenOliot();  
+            luoKehysMuuttujineen();
+            paneelinJaAlapaneelinToiminta();
+            valkonToiminta();
+            lisaaKehykseenOliot();  
     }
     /**
      * Metodi luo oliot ja asettaa otsikon ikkunalle.
@@ -35,8 +35,8 @@ public class MiinapeliKehys extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         // LUO OMA PANEELI HALUTULLA MÄÄRÄLLÄ RUUTUJA
-        panel = new OmaPaneeli(9,9,10); 
-        alaPaneeli = new JLabel("Mahdollisia tilastoja/pisteitä");
+        panel = new OmaPaneeli();
+        alaPaneeli = new JLabel("Tervetuloa pelaamaan");
         statusbar = new JMenuBar();
         peliValikko = new JMenu();
         uusiPeli = new JMenuItem();
@@ -47,7 +47,8 @@ public class MiinapeliKehys extends JFrame{
      * Metodi määrittelee käyttöliittymän alapaneelin
      */
     private void paneelinJaAlapaneelinToiminta() {
-        //panel.setPreferredSize(new Dimension(400,300));
+        panel.setPreferredSize(new Dimension((25*30),(25*16))); // siiretään erilliseen vaikeustaso metodiin
+        panel.luoPeli(30,16,99);                              // myös tämä
         alaPaneeli.setBackground(Color.white);
         alaPaneeli.setOpaque(true);
         alaPaneeli.setBorder(BorderFactory.createLineBorder(Color.white));
@@ -57,6 +58,7 @@ public class MiinapeliKehys extends JFrame{
      */
     private void valkonToiminta() {
         peliValikko.setText("Peli");
+        
         uusiPeli.setText("Uusi peli");
         uusiPeli.addActionListener(new ActionListener(){
            public void actionPerformed(ActionEvent evt) {
@@ -88,8 +90,8 @@ public class MiinapeliKehys extends JFrame{
      * @param evt 
      */
     private void uusiPeliActionPerformed(ActionEvent evt) {
-        alaPaneeli.setText("Vain maksullisessa versiossa!");
-//        panel.uusiPeli();
+        panel.uusiPeli();
+        alaPaneeli.setText("We went f2p");
     }
     /**
      * Määrittelee valikon sulje kohdan toimintaa.
