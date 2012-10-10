@@ -10,6 +10,8 @@ seulottu vikoja/bugeja.
 Lippujen ja miinojen  kuvat "hyviä".
 Esim. käsintestatessa tuli mieleen, että hävitessä ms miinaharava värjää
 miinojen taustan punaiseksi(klooni kun on omani).
+Kun hävisi, miinoitetut ruudut "eivät olleet auki" eli niillä oli
+suljetun ruudun border.
 Käsin testatessa löytyi myös bugi, kun liputti satunnaisia ruutuja, niin 
 rekursio avasi myös ne ruudut joissa oli lippu -- korjattu.
 Sisko toimi laatutarkistajana, kuullemma kelpasi.
