@@ -23,3 +23,10 @@ En keksinyt järkevää testiä miinoitettujen ruutujen tarkistukseen eli
 ruudukon luonnin jälkeen miinoitetun ruudun testaus hankalaa. Nykyisessä 
 ruudunkon miinan testaus ei voi koskaan epäonnistua. Miinoittamisen
 testaaminen myös hankalaa, nykyisessä versiossa jokaisessa ruudussa on miina.
+
+
+Lisähuomioita:
+Kun vaikeustaso on ensimmäisessä ikkunassa valittu, sitä ei voi muuttaa
+kesken pelin. Pitää siis aloittaa avata peli uudestaan ennen kuin 
+voi muuttaa vaikeustasoa. Suunnitelmissa oli saada se toimimaan, mutta toisin
+kävi.
