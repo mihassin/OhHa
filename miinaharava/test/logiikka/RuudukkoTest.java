@@ -46,7 +46,13 @@ public class RuudukkoTest {
     public void alussaEiOleLippua() {
         assertFalse(r.onkoLippu(1, 2));
     }
-
+    
+    @Test
+    public void miinat(){
+        boolean eiTietoa = r.onkoMiina(1, 2);
+        
+        assertEquals(r.onkoMiina(1,2), eiTietoa); // ei voi olla väärin
+    }
     @Test
     public void lipunAsettaminen() {
         r.asetaLippu(1, 2, true);
