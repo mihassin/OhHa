@@ -1,0 +1,23 @@
+Testausdokumentti
+=================
+
+Käsintestattu:
+Voitit ja hävisit pelin ilmoitus, esim. voiti pelin toimi ennen niin, että
+kun viimeinen oikea ruutu oli avattu, tuli klikata miina ruutua, että ilmoitus
+tuli.
+Vaikeustasojen oikeanlainen koko. Useita kertoja myös pelattu peliä ja
+seulottu vikoja/bugeja.
+Lippujen ja miinojen  kuvat "hyviä".
+Esim. käsintestatessa tuli mieleen, että hävitessä ms miinaharava värjää
+miinojen taustan punaiseksi(klooni kun on omani).
+Käsin testatessa löytyi myös bugi, kun liputti satunnaisia ruutuja, niin 
+rekursio avasi myös ne ruudut joissa oli lippu -- korjattu.
+Sisko toimi laatutarkistajana, kuullemma kelpasi.
+Muita virheitä ei ole löytynyt, vähäinen käsintestaus??, mutta toisaalta
+voiko mitään testata tarpeeksi.
+
+Testit:
+En keksinyt järkevää testiä miinoitettujen ruutujen tarkistukseen eli
+ruudukon luonnin jälkeen miinoitetun ruudun testaus hankalaa. Nykyisessä 
+ruudunkon miinan testaus ei voi koskaan epäonnistua. Miinoittamisen
+testaaminen myös hankalaa, nykyisessä versiossa jokaisessa ruudussa on miina.

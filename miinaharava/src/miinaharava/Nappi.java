@@ -56,6 +56,7 @@ public class Nappi extends JButton {
      * Määrittelee miltä miinoitettu ruutu näyttää.
      */
     public void naytaMiina() {
+        naytaAvattu();
         setIcon(new ImageIcon(getClass().getResource("/miinaharava/res/miina.png")));
     }
 
