@@ -3,13 +3,15 @@ package logiikka;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 /**
- * Logiikan toinen osa. Ruudukko on Ruutu taulukko.
- * Ruudukko hoitaa myös ruutujen miinoituksen.
+ * Logiikan toinen osa. Ruudukko on Ruutu taulukko. Ruudukko hoitaa myös
+ * ruutujen miinoituksen.
+ *
  * @author Marko Hassinen
  */
 public class Ruudukko {
-    
+
     public static final int MIINA = 1;
     public static final int MIINATON = 0;
     private int x;
@@ -17,13 +19,14 @@ public class Ruudukko {
     private int vihjeNumero;
     private int miinaLkm;
     private Ruutu[][] ruudukko;
-    
+
     /**
-     * Ruudukon konstruktori.
-     * Luo x * y kokoisen ruutu taulukon.
+     * Ruudukon konstruktori. Luo x * y kokoisen ruutu taulukon. Lisää
+     * ruudukkoon olemassa olevat Ruudut. Miinoittaa ruudukon.
+     *
      * @param leveys
      * @param korkeus
-     * @param miinat 
+     * @param miinat
      */
     public Ruudukko(int leveys, int korkeus, int miinat) {
         x = leveys;
@@ -34,158 +37,204 @@ public class Ruudukko {
         lisaaRuudutTauluun();
         miinoitaRuudukko();
     }
+
     /**
      * Luo jokaisen taulukon ruutu olion. Ruutuja on ruudukossa x * y määrä.
      */
     private void lisaaRuudutTauluun() {
-        for(int i = 0; i < x; i++) {
-            for(int j = 0; j< y; j++) {
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
                 ruudukko[i][j] = new Ruutu();
-            }    
+            }
         }
     }
+
     /**
-     * Lisää Ruudukkoon satunnaisille paikoille miinat.
-     * Miinoja on Ruudukossa miinaLkm määrä.
+     * Lisää Ruudukkoon satunnaisille paikoille miinat. Miinoja on Ruudukossa
+     * miinaLkm määrä.
      */
     private void miinoitaRuudukko() {
-        List<Integer> apu = new ArrayList<Integer>(x*y);
-        
-        for(int i=0; i < miinaLkm ; i++)
+        List<Integer> apu = new ArrayList<Integer>(x * y);
+
+        for (int i = 0; i < miinaLkm; i++) {
             apu.add(MIINA);
-        for(int i=0; i<x*y-miinaLkm; i++)
+        }
+        for (int i = 0; i < x * y - miinaLkm; i++) {
             apu.add(MIINATON);
-        
+        }
+
         Collections.shuffle(apu);
-        
+
         int apuTaulunKoko = 0;
-        
-        for(int i = 0; i < x; i++) {
-            for(int j = 0; j < y; j++) {
-                if(apu.get(apuTaulunKoko) == 1)
+
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                if (apu.get(apuTaulunKoko) == 1) {
                     ruudukko[i][j].asetaMiina(true);
+                }
                 apuTaulunKoko++;
             }
         }
     }
+
     /**
      * Palauttaa ruudukon sarakkeiden määrän.
-     * @return 
+     *
+     * @return
      */
     public int getLeveys() {
         return x;
     }
+
     /**
      * Palauttaa ruudukon rivijen määrän.
-     * @return 
+     *
+     * @return
      */
     public int getKorkeus() {
         return y;
     }
+
     /**
      * Palauttaa ruudun kohdassa (sijaintiX, sijaintiY)
+     *
      * @param sijaintiX
      * @param sijaintiY
-     * @return 
+     * @return
      */
     public Ruutu getRuutu(int sijaintiX, int sijaintiY) {
         return ruudukko[sijaintiX][sijaintiY];
     }
+
     /**
      * Kertoo onko ruutu avattu kohdassa (sijaintiX, sijaintiY)
+     *
      * @param sijaintiX
      * @param sijaintiY
-     * @return 
+     * @return
      */
     public boolean onkoAuki(int sijaintiX, int sijaintiY) {
         return ruudukko[sijaintiX][sijaintiY].onkoAvattu();
     }
+
     /**
      * Kertoo onko kohdassa (sijaintiX, sijaintiY) ruudulle asetettu lippu.
+     *
      * @param sijaintiX
      * @param sijaintiY
-     * @return 
+     * @return
      */
     public boolean onkoLippu(int sijaintiX, int sijaintiY) {
         return ruudukko[sijaintiX][sijaintiY].onkoLippu();
     }
+
     /**
      * Kertoo onko kohdassa (sijaintiX, sijaintiY) ruutu miinoitettu.
+     *
      * @param sijaintiX
      * @param sijaintiY
-     * @return 
+     * @return
      */
     public boolean onkoMiina(int sijaintiX, int sijaintiY) {
         return ruudukko[sijaintiX][sijaintiY].onkoMiina();
     }
+
     /**
-     * Asettaa ruudulle kohdassa (sijaintiX, sijaintiY) lipun, jos ruudulla ei ole lippua.
-     * Jos ruudulla on lippu, lippu poistetaan. Palauttaa arvon true, jos algoritmi onnistui.
-     * Muussa tapauksessa palauttaa arvon false.
+     * Asettaa ruudulle kohdassa (sijaintiX, sijaintiY) lipun, jos ruudulla ei
+     * ole lippua. Jos ruudulla on lippu, lippu poistetaan. Palauttaa arvon
+     * true, jos algoritmi onnistui. Muussa tapauksessa palauttaa arvon false.
+     *
      * @param sijaintiX
      * @param sijaintiY
      * @param lippu
-     * @return 
+     * @return
      */
     public boolean asetaLippu(int sijaintiX, int sijaintiY, boolean lippu) {
 
         if (!ruudukko[sijaintiX][sijaintiY].onkoLippu() && lippu) {
             ruudukko[sijaintiX][sijaintiY].asetaLippu(true);
             return true;
-        }
-        else if (ruudukko[sijaintiX][sijaintiY].onkoLippu() && !lippu) {
+        } else if (ruudukko[sijaintiX][sijaintiY].onkoLippu() && !lippu) {
             ruudukko[sijaintiX][sijaintiY].asetaLippu(false);
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
+
     /**
      * Avaa ruudun kohdassa(sijaintiX, sijaintiY), jos ruutu ei ole avattu.
+     *
      * @param sijaintiX
-     * @param sijaintiY 
+     * @param sijaintiY
      */
     public void avaa(int sijaintiX, int sijaintiY) {
         if (!ruudukko[sijaintiX][sijaintiY].onkoAvattu()) {
             ruudukko[sijaintiX][sijaintiY].asetaAvattu(true);
         }
     }
+
     /**
-     * Tutkii ruudun kohdassa (sijaintiX, sijaintiY) ympäröivät ruudut. 
-     * Jos vierus ruudussa on miina, se kirjataan ylös.
-     * Yhtä ruutua ympäröi useimmiten 8 miinaa. Nurkassa ruutua ympäröi 3 ruutua.
-     * Laidoissa ruutua ympäröi 5 ruutua. Palauttaa tiedon, kuinka monta miinoitettua
-     * ympäröivää ruutua on.
+     * Tutkii ruudun kohdassa (sijaintiX, sijaintiY) ympäröivät ruudut. Jos
+     * vierus ruudussa on miina, se kirjataan ylös. Yhtä ruutua ympäröi
+     * useimmiten 8 miinaa. Nurkassa ruutua ympäröi 3 ruutua. Laidoissa ruutua
+     * ympäröi 5 ruutua. Palauttaa tiedon, kuinka monta miinoitettua ympäröivää
+     * ruutua on.
+     *
      * @param sijaintiX
      * @param sijaintiY
-     * @return 
+     * @return
      */
     public int getVihjeNumero(int sijaintiX, int sijaintiY) {
         vihjeNumero = 0;
-        
-        for(int i = sijaintiX-1; i < sijaintiX+2; i++) {
-            for(int j = sijaintiY-1; j < sijaintiY+2; j++) {
-                if((i>=0 && i<x) && (j>=0 && j<y)) {
-                    if((!(i==sijaintiX && j==sijaintiY)) && ruudukko[i][j].onkoMiina()) {
+
+        for (int i = sijaintiX - 1; i < sijaintiX + 2; i++) {
+            for (int j = sijaintiY - 1; j < sijaintiY + 2; j++) {
+                if ((i >= 0 && i < x) && (j >= 0 && j < y)) {
+                    if ((!(i == sijaintiX && j == sijaintiY)) && ruudukko[i][j].onkoMiina()) {
                         vihjeNumero++;
                     }
                 }
             }
         }
-         return vihjeNumero;
+        return vihjeNumero;
     }
+
     /**
-     * Uuden pelin luodessa, metodi asettaa joka ruudulle false arvon miinoille, lipuille ja avatuille.
+     * Uuden pelin luodessa, metodi asettaa joka ruudulle false arvon miinoille,
+     * lipuille ja avatuille.
      */
     public void uusiPeli() {
-        for(int i = 0; i<x; i++) {
-            for(int j= 0; j<y; j++){
+
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
                 ruudukko[i][j].asetaAvattu(false);
                 ruudukko[i][j].asetaMiina(false);
                 ruudukko[i][j].asetaLippu(false);
             }
-        }     
+        }
+
         miinoitaRuudukko();
+    }
+    
+    /**
+     * Jos ruudukosta on avattu kaikki miinattomat ruudut, niin metodi palauttaa
+     * true. Muussa tapauksessa false.
+     * @return 
+     */
+    public boolean voitettuPeli() {
+        int miinattomat = 0;
+        
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                if(ruudukko[i][j].onkoAvattu() && !ruudukko[i][j].onkoMiina())
+                    miinattomat++;
+            }
+        }
+        
+        if(miinattomat == ((x*y)-miinaLkm))
+            return true;
+        else
+            return false;
     }
 }

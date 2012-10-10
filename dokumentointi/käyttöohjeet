@@ -1,1 +1,55 @@
+Miinaharava
+===========
 
+Pelin avaaminen
+---------------
+Kun ohjelma käynnistyy, avautuu ikkuna, jossa tervehditään pelaajaa
+ja pyydetään valitsemaan vaikeustaso.
+
+Vaikeustaso
+----------- 
+Määrittelee pelin koon ja etsittävien miinojen määrän.
+1. Helppo: Laudan leveys 9 ruutua,
+	   Korkeus 9 ruutua,
+	   10 miinaa
+
+2. Normaali: Laudan leveys 16 ruutua,
+	     korkeus 16 ruutua,
+	     40 miinaa
+
+3. Vaikea: Laudan leveys 30 ruutua,
+	   korkeus 16 ruutua,
+	   99 miinaa
+
+Peli
+----
+Kun vaikeustaso on valittu ja painettu näppäintä OK,
+aukeaa uusi ikkuna. Avautunut ikkuna on peli.
+Pelaaja näkee edessään ruudukon, joka on pelilauta.
+Laudalla on ruutuja riippuen pelaajan valitseman vaikeustason
+mukaan (helppo 81 ruutua, normaali 256 ja vaikea 480 ruutua).
+Yläreunassa on valikko "Peli", jota painamalla pelaaja voi
+lopettaa pelaamisen painamalla "Sulje" näppäintä, tai aloittaa uuden pelin
+painamalla "Uusi peli" näppäintä.
+
+Pelin pelaaminen
+----------------
+Tarkoitus on löytää miinat, ja tämän tehdäkseen pelaajan tulee painaa ruutuja.
+Miinoitettua ruutua ei saa painaa tai pelaaja häviää pelin. Ainostaan miinattomia ruutuja
+painamalla pelaaja voi voittaa. Jos pelaaja löytää kaikki miinattomat ruudut ja ei paina yhtään
+miinoitettua ruutua, pelaaja voittaa pelin. Jos pelaaja epäilee, että ruudussa on miina
+voi hän merkitä ruudun ?-merkillä. Tällöin ruutua ei voi painaa. ?-merkin voi myös poistaa,
+jos ruutua ei ollut tarkoitus merkitä.
+
+Ruudut
+------
+Harmaat ruudut ovat suljettuja. Kun ruutu avataan sitä painamalla vasemalla hiiren painikkeella,
+ruutuun ilmestyy uusi kuva. Ruutu voi olla tyhjä(valkoinen ruutu), miinoitettu(X-merkki) tai 
+ruudussa voi olla vihjenumero.
+Vihjenumero kertoo pelaajalle kuinka monessa viereisessä ruudussa on miina. Tätä tietoa hyödyntäen
+pelaaja voi määrittää miinojen sijainnin.
+
+Peli avaa ruutuja itse
+----------------------
+Kun pelaaja painaa tyhjää ruutua(valkoinen ruutu), avaa peli itse ruutuja niin kauan kunnes avatussa
+ruudussa on vihjenumero. Peli ei voi avata miinoitettua ruutua.

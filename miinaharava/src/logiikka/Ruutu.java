@@ -1,14 +1,17 @@
 package logiikka;
+
 /**
- * Logiikka on jaettu kahteen luokkaan: Ruutu ja Ruudukko.
- * Ruutu sisältää yksittäisen ruudun tietoa.
+ * Logiikka on jaettu kahteen luokkaan: Ruutu ja Ruudukko. Ruutu sisältää
+ * yksittäisen ruudun tietoa.
+ *
  * @author Marko Hassinen
  */
 public class Ruutu {
-    
+
     private boolean miinoitettuRuutu;
     private boolean avattuRuutu;
     private boolean liputettuRuutu;
+
     /**
      * Ruutu luokan konstruktori. Asettaa jokaiselle muuttujalle arvon false.
      */
@@ -17,51 +20,66 @@ public class Ruutu {
         avattuRuutu = false;
         liputettuRuutu = false;
     }
+
     /**
      * Kertoo onko ruudussa miina.
      */
     public boolean onkoMiina() {
         return miinoitettuRuutu;
-    } 
+    }
+
     /**
      * Kertoo onko ruutu avattu.
      */
     public boolean onkoAvattu() {
         return avattuRuutu;
-    } 
+    }
+
     /**
      * Kertoo onko ruudun päälle asetettu lippu.
      */
     public boolean onkoLippu() {
         return liputettuRuutu;
     }
+
     /**
-     * Asettaa miinan ruudulle. Miinaa ei voi poistaa.
+     * Asettaa miinan ruudulle ehdolla miina. Jos ehto miina ei päde, miina
+     * poistetaan.
+     *
+     * @param miina
      */
-    public void asetaMiina(boolean miina){
-        if(miina)
+    public void asetaMiina(boolean miina) {
+        if (miina) {
             miinoitettuRuutu = true;
-        else
+        } else {
             miinoitettuRuutu = false;
+        }
     }
+
     /**
-     * Avaa ruudun. Avattua ruutua ei voi sulkea.
+     * Avaa ruudun ehdolla avaa. Jos ehto avaa ei päde, ruutu suljetaan.
+     *
+     * @param avaa
      */
     public void asetaAvattu(boolean avaa) {
-            if(avaa)
-                avattuRuutu = true;
-            else
-                avattuRuutu = false;
+        if (avaa) {
+            avattuRuutu = true;
+        } else {
+            avattuRuutu = false;
+        }
     }
+
     /**
-     * Asettaa ruudulle lipun jos metodia kutsutaan lipun arvolla true.
-     * Jos metodia kutsutaan lipun arvolla false, lippu poistetaan ruudulta
-     * @param lippu 
+     * Asettaa ruudulle lipun jos metodia kutsutaan lipun arvolla true. Jos
+     * metodia kutsutaan lipun arvolla false, lippu poistetaan ruudulta
+     *
+     * @param lippu
      */
     public void asetaLippu(boolean lippu) {
-        if(lippu)
+        if (lippu) {
             liputettuRuutu = true;
-        else
+        } else {
             liputettuRuutu = false;
+        }
     }
 }
