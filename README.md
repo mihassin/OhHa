@@ -3,4 +3,4 @@ OhHa
 Valmis!
 
 --pääsiäisloma cowboy inc.
-count: 6
+count: 5
